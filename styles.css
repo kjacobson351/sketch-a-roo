@@ -5,10 +5,14 @@ table, th, td {
 }
 
 th, td {
-    width: 10px;
-    height: 10px;
+    width: 25px;
+    height: 25px;
 }
 
-td{
-    
+.activated {
+    background-color: aqua;
+}
+
+.nonactivated {
+    background-color: white;
 }

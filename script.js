@@ -1,20 +1,40 @@
-//babysteps! first just make single grid with JS
+let userHeight = 25;
+let userWidth = 25;
 
 
-function makeTableRow(height,width){
+
+function makeGrid(height, width) {
+    height = userHeight;
+    width = userWidth;
     let tableContainer = document.getElementById("container")
+    //this loop creates tr (table row) elements. 
     for (let i = 0; i < height; i++) {
         let row = document.createElement("tr");
+        //adds id to each row
         row.id = "row" + i;
+        //adds row to the container div
         tableContainer.appendChild(row)
-        let rowI = document.getElementById("row" + i);
-    for ( let j = 0; j < width; j++) {
-           let cell = document.createElement("td")
-         cell.id = "cell" + j
-        rowI.appendChild(cell)
+        // this loop creates cells appends them to the rows and gives them unique id.
+        for (let j = 0; j < width; j++) {
+            let cell = document.createElement("td");
+            cell.id = "row" + i + "cell" + j;
+            row.appendChild(cell)
+        // an event listener is added to each cell that changes the class on a mouse over event.
+            document.getElementById("row" + i + "cell" + j)
+                .addEventListener("mouseover", () => { document.getElementById("row" + i + "cell" + j).classList = ("activated") });
+        }
     }
+};
 
-    }
+makeGrid(userHeight, userWidth);
+
+const resetButton = document.getElementById("resetBtn")
+resetButton.addEventListener("click",resetGrid)
+
+//add another for loop to target all cells
+function resetGrid(){
+for (let i = 0; i < userHeight; i++) {
+    document.getElementById("row" + i + "cell" + i).classList = ("nonactivated")
 }
+};
 
-makeTableRow(50,50)
