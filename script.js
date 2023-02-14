@@ -1,5 +1,5 @@
-let userHeight = 25;
-let userWidth = 25;
+let userHeight = 10;
+let userWidth = 10;
 
 
 
@@ -19,22 +19,42 @@ function makeGrid(height, width) {
             let cell = document.createElement("td");
             cell.id = "row" + i + "cell" + j;
             row.appendChild(cell)
-        // an event listener is added to each cell that changes the class on a mouse over event.
-            document.getElementById("row" + i + "cell" + j)
-                .addEventListener("mouseover", () => { document.getElementById("row" + i + "cell" + j).classList = ("activated") });
+            // an event listener is added to each cell that changes the class on a mouse over event.
+            /* document.getElementById("row" + i + "cell" + j)
+                 .addEventListener("mouseover", () => { document.getElementById("row" + i + "cell" + j).classList = ("activated") });*/
         }
     }
+    setColor();
 };
+
+function setColor(height, width) {
+    height = userHeight;
+    width = userWidth;
+    for (let i = 0; i < userHeight; i++) {
+        for (let j = 0; j < userWidth; j++) {
+
+            document.getElementById("row" + i + "cell" + j).addEventListener("mouseover", () => { document.getElementById("row" + i + "cell" + j).style.backgroundColor = "black" })
+        }
+    }
+
+};
+
 
 makeGrid(userHeight, userWidth);
 
 const resetButton = document.getElementById("resetBtn")
-resetButton.addEventListener("click",resetGrid)
+resetButton.addEventListener("click", resetGrid)
 
-//add another for loop to target all cells
-function resetGrid(){
-for (let i = 0; i < userHeight; i++) {
-    document.getElementById("row" + i + "cell" + i).classList = ("nonactivated")
-}
+
+
+
+function resetGrid() {
+    for (let i = 0; i < userHeight; i++) {
+        for (let j = 0; j < userWidth; j++) {
+
+            document.getElementById("row" + i + "cell" + j).style.backgroundColor = "white";
+        }
+    }
+    //makeGrid(userHeight,userWidth)
 };
 
