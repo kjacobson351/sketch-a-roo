@@ -1,9 +1,9 @@
-let userHeight = 25;
-let userWidth = 25;
+let userHeight = 20;
+let userWidth = 20;
 let rgb
 
 
-
+/*
 function makeGrid(height, width) {
     height = userHeight;
     width = userWidth;
@@ -22,11 +22,13 @@ function makeGrid(height, width) {
             row.appendChild(cell)
             // an event listener is added to each cell that changes the class on a mouse over event.
             /* document.getElementById("row" + i + "cell" + j)
-                 .addEventListener("mouseover", () => { document.getElementById("row" + i + "cell" + j).classList = ("activated") });*/
+                 .addEventListener("mouseover", () => { document.getElementById("row" + i + "cell" + j).classList = ("activated") });
         }
     }
     setColorDefault();
 };
+*/
+
 
 function setColorDefault(height, width) {
     height = userHeight;
@@ -40,8 +42,8 @@ function setColorDefault(height, width) {
 
 };
 
-
-makeGrid(userHeight, userWidth);
+//delete this after you get grid functionality
+//makeGrid(userHeight, userWidth);
 
 const resetButton = document.getElementById("resetBtn")
 resetButton.addEventListener("click", resetGrid);
@@ -159,6 +161,32 @@ function setColorBluish(height, width) {
 
 };
 
+//userHeight = 13
+
+let grid = document.querySelector(".grid")
+
+//add event listener to each cell
+function makeGriddyboi(dims) {
+    dims = userHeight
+    for (let i = 0; i < (dims * dims); i++) {
+        const div = document.createElement("div")
+        div.classList.add("cell");
+        div.id = "cell" + i;
+        div.addEventListener("mouseover", () => {
+        document.getElementById("cell" + i).classList = ("activated")
+        })
+        grid.appendChild(div);
+        
+
+    }
+    grid.setAttribute('style', `grid-template-columns: repeat(${dims}, 1fr); grid-template-rows: repeat(${dims}, 1fr);`);
+};
+
+makeGriddyboi()
 
 
+function test(){
+    console.log("test")
+}
 
+console.log(document.querySelectorAll(".cell"))
