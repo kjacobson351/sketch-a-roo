@@ -1,49 +1,8 @@
-let userHeight = 20;
-let userWidth = 20;
-let rgb
+let userInput = 25;
 
 
-/*
-function makeGrid(height, width) {
-    height = userHeight;
-    width = userWidth;
-    let tableContainer = document.getElementById("container")
-    //this loop creates tr (table row) elements. 
-    for (let i = 0; i < height; i++) {
-        let row = document.createElement("tr");
-        //adds id to each row
-        row.id = "row" + i;
-        //adds row to the container div
-        tableContainer.appendChild(row)
-        // this loop creates cells appends them to the rows and gives them unique id.
-        for (let j = 0; j < width; j++) {
-            let cell = document.createElement("td");
-            cell.id = "row" + i + "cell" + j;
-            row.appendChild(cell)
-            // an event listener is added to each cell that changes the class on a mouse over event.
-            /* document.getElementById("row" + i + "cell" + j)
-                 .addEventListener("mouseover", () => { document.getElementById("row" + i + "cell" + j).classList = ("activated") });
-        }
-    }
-    setColorDefault();
-};
-*/
 
 
-function setColorDefault(height, width) {
-    height = userHeight;
-    width = userWidth;
-    for (let i = 0; i < userHeight; i++) {
-        for (let j = 0; j < userWidth; j++) {
-
-            document.getElementById("row" + i + "cell" + j).addEventListener("mouseover", () => { document.getElementById("row" + i + "cell" + j).style.backgroundColor = "black" })
-        }
-    }
-
-};
-
-//delete this after you get grid functionality
-//makeGrid(userHeight, userWidth);
 
 const resetButton = document.getElementById("resetBtn")
 resetButton.addEventListener("click", resetGrid);
@@ -58,19 +17,39 @@ const greenButton = document.getElementById("greenBtn");
 greenButton.addEventListener("click", setColorGreenish)
 
 
+let grid = document.querySelector(".grid")
 
-
-
-
-function resetGrid() {
-    for (let i = 0; i < userHeight; i++) {
-        for (let j = 0; j < userWidth; j++) {
-
-            document.getElementById("row" + i + "cell" + j).style.backgroundColor = "white";
-        }
+// Makes a square grid from 1 input and adds unique id to each cell.
+function makeGriddyboi(dims) {
+    dims = userInput
+    for (let i = 0; i < (dims * dims); i++) {
+        const div = document.createElement("div")
+        div.classList.add("cell");
+        div.id = "cell" + i;
+        grid.appendChild(div);
     }
-    //makeGrid(userHeight,userWidth)
+    //changes style attribute with a string literal. the grid template features will create the correct amount of columns based on user input, 1fr insures that each row and column is the same size.
+    grid.setAttribute('style', `grid-template-columns: repeat(${dims}, 1fr); grid-template-rows: repeat(${dims}, 1fr);`);
 };
+
+
+
+//function to test buttons
+function test(){
+    console.log("test")
+}
+
+//iterates through each cell and changes background to white.
+function resetGrid(dims) {
+    dims = userInput
+    for (let i = 0; i < dims * dims; i++) {
+        document.getElementById("cell" + i).style.backgroundColor = "white";    
+    }
+    
+};
+
+//RANDOM COLOR FUNCTIONS////////////
+
 //creates a random number between 0 and 255
 function random255() {
     return (Math.floor(Math.random() * 255))
@@ -121,72 +100,48 @@ function bluesAndPurplesRGB() {
     b = 255;
     //return'"' + "rgb" +"(" + r + "," + g + "," + b + ")"+ '"'
     return 'rgb(' + r + ',' + g + ',' + b + ')'
+};
+
+function setColorDefault(dims) {
+    dims = userInput;
+for (let i = 0; i < dims * dims; i++) {
+    document.getElementById("cell" + i).addEventListener("mouseover", () => {
+        document.getElementById("cell" + i).style.backgroundColor = "black"
+    })
 }
-
-
-function setColorReddish(height, width) {
-    height = userHeight;
-    width = userWidth;
-    for (let i = 0; i < userHeight; i++) {
-        for (let j = 0; j < userWidth; j++) {
-
-            document.getElementById("row" + i + "cell" + j).addEventListener("mouseover", () => { document.getElementById("row" + i + "cell" + j).style.backgroundColor = pinksAndOrangesRGB() })
-        }
-    }
-
-};
-
-function setColorGreenish(height, width) {
-    height = userHeight;
-    width = userWidth;
-    for (let i = 0; i < userHeight; i++) {
-        for (let j = 0; j < userWidth; j++) {
-
-            document.getElementById("row" + i + "cell" + j).addEventListener("mouseover", () => { document.getElementById("row" + i + "cell" + j).style.backgroundColor = greensAndYellowsRGB() })
-        }
-    }
-
 };
 
 
-function setColorBluish(height, width) {
-    height = userHeight;
-    width = userWidth;
-    for (let i = 0; i < userHeight; i++) {
-        for (let j = 0; j < userWidth; j++) {
-
-            document.getElementById("row" + i + "cell" + j).addEventListener("mouseover", () => { document.getElementById("row" + i + "cell" + j).style.backgroundColor = bluesAndPurplesRGB() })
-        }
-    }
-
+function setColorReddish(dims) {
+    dims = userInput;
+for (let i = 0; i < dims * dims; i++) {
+    document.getElementById("cell" + i).addEventListener("mouseover", () => {
+        document.getElementById("cell" + i).style.backgroundColor = pinksAndOrangesRGB()
+    })
+}
 };
 
-//userHeight = 13
-
-let grid = document.querySelector(".grid")
-
-//add event listener to each cell
-function makeGriddyboi(dims) {
-    dims = userHeight
-    for (let i = 0; i < (dims * dims); i++) {
-        const div = document.createElement("div")
-        div.classList.add("cell");
-        div.id = "cell" + i;
-        div.addEventListener("mouseover", () => {
-        document.getElementById("cell" + i).classList = ("activated")
-        })
-        grid.appendChild(div);
-        
-
-    }
-    grid.setAttribute('style', `grid-template-columns: repeat(${dims}, 1fr); grid-template-rows: repeat(${dims}, 1fr);`);
+function setColorGreenish(dims) {
+    dims = userInput;
+for (let i = 0; i < dims * dims; i++) {
+    document.getElementById("cell" + i).addEventListener("mouseover", () => {
+        document.getElementById("cell" + i).style.backgroundColor = greensAndYellowsRGB()
+    })
+}
 };
+
+function setColorBluish(dims) {
+    dims = userInput;
+for (let i = 0; i < dims * dims; i++) {
+    document.getElementById("cell" + i).addEventListener("mouseover", () => {
+        document.getElementById("cell" + i).style.backgroundColor = bluesAndPurplesRGB()
+    })
+}
+};
+//////////////////
+
+userInput = 15;
 
 makeGriddyboi()
+setColorDefault()
 
-
-function test(){
-    console.log("test")
-}
-
-console.log(document.querySelectorAll(".cell"))
