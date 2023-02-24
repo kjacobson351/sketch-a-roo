@@ -1,4 +1,4 @@
-let userInput = 25;
+let color = 0
 
 
 
@@ -19,8 +19,22 @@ greenButton.addEventListener("click", setColorGreenish)
 
 let grid = document.querySelector(".grid")
 
+function onUserInput() {
+    resetGrid()
+    userInput = document.getElementById("rangeSlider").value;
+    destroyGriddyBoi()
+    makeGriddyBoi()
+    getColor()
+    
+
+    
+
+
+}
+
 // Makes a square grid from 1 input and adds unique id to each cell.
-function makeGriddyboi(dims) {
+function makeGriddyBoi(dims) {
+    
     dims = userInput
     for (let i = 0; i < (dims * dims); i++) {
         const div = document.createElement("div")
@@ -114,6 +128,7 @@ for (let i = 0; i < dims * dims; i++) {
 
 function setColorReddish(dims) {
     dims = userInput;
+    color = 1;
 for (let i = 0; i < dims * dims; i++) {
     document.getElementById("cell" + i).addEventListener("mouseover", () => {
         document.getElementById("cell" + i).style.backgroundColor = pinksAndOrangesRGB()
@@ -123,6 +138,7 @@ for (let i = 0; i < dims * dims; i++) {
 
 function setColorGreenish(dims) {
     dims = userInput;
+    color = 2;
 for (let i = 0; i < dims * dims; i++) {
     document.getElementById("cell" + i).addEventListener("mouseover", () => {
         document.getElementById("cell" + i).style.backgroundColor = greensAndYellowsRGB()
@@ -132,6 +148,7 @@ for (let i = 0; i < dims * dims; i++) {
 
 function setColorBluish(dims) {
     dims = userInput;
+    color = 3;
 for (let i = 0; i < dims * dims; i++) {
     document.getElementById("cell" + i).addEventListener("mouseover", () => {
         document.getElementById("cell" + i).style.backgroundColor = bluesAndPurplesRGB()
@@ -140,8 +157,29 @@ for (let i = 0; i < dims * dims; i++) {
 };
 //////////////////
 
-userInput = 15;
+userInput = 12;
 
-makeGriddyboi()
+makeGriddyBoi()
 setColorDefault()
 
+
+
+function destroyGriddyBoi(){
+const elements = document.getElementsByClassName("cell");
+while(elements.length > 0){
+    elements[0].parentNode.removeChild(elements[0]);
+}
+}
+
+function getColor() {
+    switch (color) {
+case 0: setColorDefault()
+break;
+case 1: setColorReddish()
+break;
+case 2: setColorGreenish()
+break;
+case 3: setColorBluish()
+break;
+    }
+};

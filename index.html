@@ -10,13 +10,16 @@
 <body>
     <div class="grid"></div>
         
-    </div>
-        <div class="buttons">
+    
+    <div class="buttons">
         <button id="resetBtn">RESET</button>
         <button id="pinkBtn">Pinks and Oranges</button>
         <button id="greenBtn">Greens and Yellows</button>
         <button id="blueBtn">Blues and Purples</button>
         
+    </div>
+    <div id="slider">
+        <input type="range" id="rangeSlider" min="1" max="25" value="12" onchange="onUserInput(this.value)" ></input>
     </div>
     
     <script src="./script.js"></script>
