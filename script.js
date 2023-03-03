@@ -1,4 +1,6 @@
-let color = 0
+let color = 0;
+let customColor;
+
 
 
 
@@ -14,7 +16,14 @@ const blueButton = document.getElementById("blueBtn");
 blueButton.addEventListener("click", setColorBluish);
 
 const greenButton = document.getElementById("greenBtn");
-greenButton.addEventListener("click", setColorGreenish)
+greenButton.addEventListener("click", setColorGreenish);
+
+const colorPicker = document.getElementById("colorPicker");
+colorPicker.addEventListener("input", setCustomColor);
+
+
+
+
 
 
 let grid = document.querySelector(".grid")
@@ -51,6 +60,10 @@ function makeGriddyBoi(dims) {
 //function to test buttons
 function test(){
     console.log("test")
+    console.log(colorPicker.value)
+    customColor = colorPicker.value;
+    console.log(customColor)
+
 }
 
 //iterates through each cell and changes background to white.
@@ -155,6 +168,17 @@ for (let i = 0; i < dims * dims; i++) {
     })
 }
 };
+
+function setCustomColor(dims) {
+dims = userInput;
+customColor = colorPicker.value;
+color = 4;
+for (let i = 0; i < dims * dims; i++) {
+    document.getElementById("cell" + i).addEventListener("mouseover", () => {
+        document.getElementById("cell" + i).style.backgroundColor = customColor
+    }) 
+}
+}
 //////////////////
 
 userInput = 12;
@@ -181,5 +205,7 @@ case 2: setColorGreenish()
 break;
 case 3: setColorBluish()
 break;
+case 4: setCustomColor()
     }
 };
+
