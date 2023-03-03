@@ -1,5 +1,13 @@
 let color = 0;
 let customColor;
+let colorMemCount = 0
+
+
+let colorMemory1;
+let colorMemory2;
+let colorMemory3;
+let colorMemory4;
+let colorMemory5;
 
 
 
@@ -19,7 +27,10 @@ const greenButton = document.getElementById("greenBtn");
 greenButton.addEventListener("click", setColorGreenish);
 
 const colorPicker = document.getElementById("colorPicker");
-colorPicker.addEventListener("input", setCustomColor);
+colorPicker.addEventListener("input", () => {
+    setCustomColor();
+    createColorMemory()
+});
 
 
 
@@ -60,9 +71,7 @@ function makeGriddyBoi(dims) {
 //function to test buttons
 function test(){
     console.log("test")
-    console.log(colorPicker.value)
-    customColor = colorPicker.value;
-    console.log(customColor)
+    
 
 }
 
@@ -208,4 +217,31 @@ break;
 case 4: setCustomColor()
     }
 };
+
+function createColorMemory(){
+colorMemCount++
+switch (colorMemCount) {
+    case 1:
+
+colorMemory1Btn = document.createElement("button");
+colorMemory1Btn.textContent = "Color Memory 1";
+colorMemDiv = document.getElementById("colorMemory")
+colorMemDiv.appendChild(colorMemory1Btn)
+colorMemory1 = customColor
+colorMemory1Btn.style.background = colorMemory1;
+break;
+case 2:
+
+colorMemory2Btn = document.createElement("button");
+colorMemory2Btn.textContent = "Color Memory 2";
+colorMemDiv = document.getElementById("colorMemory")
+colorMemDiv.appendChild(colorMemory2Btn)
+colorMemory2 = customColor
+colorMemory2Btn.style.background = colorMemory2;
+break;
+
+}
+};
+
+
 
