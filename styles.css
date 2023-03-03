@@ -14,10 +14,12 @@ body{
     width: 575px;
 }
 
+#colorMemoryWrapper {
+    display: inline-grid;
+}
 #colorMemory {
     display: inline-grid;
-    gap: 20px
-    
+    gap: 20px    
 }
 
 
