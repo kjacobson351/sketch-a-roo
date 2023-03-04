@@ -27,10 +27,12 @@ const greenButton = document.getElementById("greenBtn");
 greenButton.addEventListener("click", setColorGreenish);
 
 const colorPicker = document.getElementById("colorPicker");
-colorPicker.addEventListener("input", () => {
+colorPicker.addEventListener("change", () => {
     setCustomColor();
     createColorMemory()
 });
+
+const subHeading = document.getElementById("subHeading")
 
 
 
@@ -38,6 +40,11 @@ colorPicker.addEventListener("input", () => {
 
 
 let grid = document.querySelector(".grid")
+
+userInput = 12;
+
+makeGriddyBoi()
+setColorDefault()
 
 function onUserInput() {
     resetGrid()
@@ -137,12 +144,13 @@ function bluesAndPurplesRGB() {
     //return'"' + "rgb" +"(" + r + "," + g + "," + b + ")"+ '"'
     return 'rgb(' + r + ',' + g + ',' + b + ')'
 };
-
+//sets default color as well as generates the subheading
 function setColorDefault(dims) {
     dims = userInput;
     for (let i = 0; i < dims * dims; i++) {
         document.getElementById("cell" + i).addEventListener("mouseover", () => {
             document.getElementById("cell" + i).style.backgroundColor = "black"
+            subHeading.innerText = subheadingGenerator()
         })
     }
 };
@@ -190,10 +198,6 @@ function setCustomColor(dims) {
 }
 //////////////////
 
-userInput = 12;
-
-makeGriddyBoi()
-setColorDefault()
 
 
 
@@ -347,6 +351,27 @@ function setMemoryColor5(dims) {
         })
     }
 };
+//nationalities has 190 elements genders has 9
+function subheadingGenerator(){
+    let nationalitiesElement;
+    let gendersElement;
+    const nationalities = ["Albanian","Algerian","American","Andorran","Angolan","Antiguans","Argentinean","Armenian","Australian","Austrian","Azerbaijani","Bahamian","Bahraini","Bangladeshi","Barbadian","Barbudans","Batswana","Belarusian","Belgian","Belizean","Beninese","Bhutanese","Bolivian","Bosnian","Brazilian","British","Bruneian","Bulgarian","Burkinabe","Burmese","Burundian","Cambodian","Cameroonian","Canadian","Cape Verdean","Central African","Chadian","Chilean","Chinese","Colombian","Comoran","Congolese","Costa Rican","Croatian","Cuban","Cypriot","Czech","Danish","Djibouti","Dominican","Dutch","East Timorese","Ecuadorean","Egyptian","Emirian","Equatorial Guinean","Eritrean","Estonian","Ethiopian","Fijian","Filipino","Finnish","French","Gabonese","Gambian","Georgian","German","Ghanaian","Greek","Grenadian","Guatemalan","Guinea-Bissauan","Guinean","Guyanese","Haitian","Herzegovinian","Honduran","Hungarian","I-Kiribati","Icelander","Indian","Indonesian","Iranian","Iraqi","Irish","Israeli","Italian","Ivorian","Jamaican","Japanese","Jordanian","Kazakhstani","Kenyan","Kittian and Nevisian","Kuwaiti","Kyrgyz","Laotian","Latvian","Lebanese","Liberian","Libyan","Liechtensteiner","Lithuanian","Luxembourger","Macedonian","Malagasy","Malawian","Malaysian","Maldivan","Malian","Maltese","Marshallese","Mauritanian","Mauritian","Mexican","Micronesian","Moldovan","Monacan","Mongolian","Moroccan","Mosotho","Motswana","Mozambican","Namibian","Nauruan","Nepalese","New Zealander","Nicaraguan","Nigerian","Nigerien","North Korean","Northern Irish","Norwegian","Omani","Pakistani","Palauan","Panamanian","Papua New Guinean","Paraguayan","Peruvian","Polish","Portuguese","Qatari","Romanian","Russian","Rwandan","Saint Lucian","Salvadoran","Samoan","San Marinese","Sao Tomean","Saudi","Scottish","Senegalese","Serbian","Seychellois","Sierra Leonean","Singaporean","Slovakian","Slovenian","Solomon Islander","Somali","South African","South Korean","Spanish","Sri Lankan","Sudanese","Surinamer","Swazi","Swedish","Swiss","Syrian","Taiwanese","Tajik","Tanzanian","Thai","Togolese","Tongan","Trinidadian or Tobagonian","Tunisian","Turkish","Tuvaluan","Ugandan","Ukrainian","Uruguayan","Uzbekistani","Venezuelan","Vietnamese","Welsh","Yemenite"]
+
+    const genders = ["boys", "girls", "non-binaries", "genderqueers", "genderfluids", "transgenders", "agenders", "bigenders", "intersexes"];
+
+    nationalitiesElement = Math.floor(Math.random() * nationalities.length);
+
+    gendersElement = Math.floor(Math.random() * genders.length);
+
+return `"Sketch me like one of your ${nationalities[nationalitiesElement]} ${genders[gendersElement]}."`
+
+};
+
+console.log(subheadingGenerator())
+
+
+
+
 
 
 
