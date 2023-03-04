@@ -8,6 +8,11 @@ let colorMemory2;
 let colorMemory3;
 let colorMemory4;
 let colorMemory5;
+let colorMemory6;
+let colorMemory7;
+let colorMemory8;
+let colorMemory9;
+let colorMemory10;
 
 
 
@@ -45,6 +50,8 @@ userInput = 12;
 
 makeGriddyBoi()
 setColorDefault()
+setInterval(subheadingGenerator, 5000);
+
 
 function onUserInput() {
     resetGrid()
@@ -144,13 +151,12 @@ function bluesAndPurplesRGB() {
     //return'"' + "rgb" +"(" + r + "," + g + "," + b + ")"+ '"'
     return 'rgb(' + r + ',' + g + ',' + b + ')'
 };
-//sets default color as well as generates the subheading
+
 function setColorDefault(dims) {
     dims = userInput;
     for (let i = 0; i < dims * dims; i++) {
         document.getElementById("cell" + i).addEventListener("mouseover", () => {
             document.getElementById("cell" + i).style.backgroundColor = "black"
-            subHeading.innerText = subheadingGenerator()
         })
     }
 };
@@ -239,7 +245,7 @@ function createColorMemory() {
         case 1:
             const colorMemory1Btn = document.createElement("button");
             colorMemory1Btn.addEventListener("click", setMemoryColor1)
-            colorMemory1Btn.textContent = "Color Memory 1";
+            colorMemory1Btn.textContent = "";
             colorMemDiv = document.getElementById("colorMemory")
             colorMemDiv.appendChild(colorMemory1Btn)
             colorMemory1 = customColor
@@ -248,7 +254,7 @@ function createColorMemory() {
         case 2:
             const colorMemory2Btn = document.createElement("button");
             colorMemory2Btn.addEventListener("click", setMemoryColor2)
-            colorMemory2Btn.textContent = "Color Memory 2";
+            colorMemory2Btn.textContent = "";
             colorMemDiv = document.getElementById("colorMemory")
             colorMemDiv.appendChild(colorMemory2Btn)
             colorMemory2 = customColor
@@ -258,7 +264,7 @@ function createColorMemory() {
 
             const colorMemory3Btn = document.createElement("button");
             colorMemory3Btn.addEventListener("click", setMemoryColor3)
-            colorMemory3Btn.textContent = "Color Memory 3";
+            colorMemory3Btn.textContent = "";
             colorMemDiv = document.getElementById("colorMemory")
             colorMemDiv.appendChild(colorMemory3Btn)
             colorMemory3 = customColor
@@ -268,7 +274,7 @@ function createColorMemory() {
 
             const colorMemory4Btn = document.createElement("button");
             colorMemory4Btn.addEventListener("click", setMemoryColor4)
-            colorMemory4Btn.textContent = "Color Memory 4";
+            colorMemory4Btn.textContent = "";
             colorMemDiv = document.getElementById("colorMemory")
             colorMemDiv.appendChild(colorMemory4Btn)
             colorMemory4 = customColor
@@ -278,15 +284,72 @@ function createColorMemory() {
 
             const colorMemory5Btn = document.createElement("button");
             colorMemory5Btn.addEventListener("click", setMemoryColor5)
-            colorMemory5Btn.textContent = "Color Memory 5";
+            colorMemory5Btn.textContent = "";
             colorMemDiv = document.getElementById("colorMemory")
             colorMemDiv.appendChild(colorMemory5Btn)
             colorMemory5 = customColor
             colorMemory5Btn.style.background = colorMemory5;
+            
+            break;
+            case 6:
+
+            const colorMemory6Btn = document.createElement("button");
+            colorMemory6Btn.addEventListener("click", setMemoryColor6)
+            colorMemory6Btn.textContent = "";
+            colorMemDiv = document.getElementById("colorMemory")
+            colorMemDiv.appendChild(colorMemory6Btn)
+            colorMemory6 = customColor
+            colorMemory6Btn.style.background = colorMemory6;
+            
+            break;
+            case 7:
+
+            const colorMemory7Btn = document.createElement("button");
+            colorMemory7Btn.addEventListener("click", setMemoryColor7)
+            colorMemory7Btn.textContent = "";
+            colorMemDiv = document.getElementById("colorMemory")
+            colorMemDiv.appendChild(colorMemory7Btn)
+            colorMemory7 = customColor
+            colorMemory7Btn.style.background = colorMemory7;
+            
+            break;
+            case 8:
+
+            const colorMemory8Btn = document.createElement("button");
+            colorMemory8Btn.addEventListener("click", setMemoryColor8)
+            colorMemory8Btn.textContent = "";
+            colorMemDiv = document.getElementById("colorMemory")
+            colorMemDiv.appendChild(colorMemory8Btn)
+            colorMemory8 = customColor
+            colorMemory8Btn.style.background = colorMemory8;
+            
+            break;
+            case 9:
+
+            const colorMemory9Btn = document.createElement("button");
+            colorMemory9Btn.addEventListener("click", setMemoryColor9)
+            colorMemory9Btn.textContent = "";
+            colorMemDiv = document.getElementById("colorMemory")
+            colorMemDiv.appendChild(colorMemory9Btn)
+            colorMemory9 = customColor
+            colorMemory9Btn.style.background = colorMemory9;
+            
+            break;
+            case 10:
+
+            const colorMemory10Btn = document.createElement("button");
+            colorMemory10Btn.addEventListener("click", setMemoryColor10)
+            colorMemory10Btn.textContent = "";
+            colorMemDiv = document.getElementById("colorMemory")
+            colorMemDiv.appendChild(colorMemory10Btn)
+            colorMemory10 = customColor
+            colorMemory10Btn.style.background = colorMemory10;
             const resetMemoryBtn = document.createElement("button");
+            resetMemoryBtn.setAttribute("id","color-reset-button")
             resetMemoryBtn.addEventListener("click",resetColorMemory)
             resetMemoryBtn.textContent = "Reset Color Memory";
             colorMemDiv.appendChild(resetMemoryBtn)
+            
             break;
 
     }
@@ -351,6 +414,56 @@ function setMemoryColor5(dims) {
         })
     }
 };
+
+function setMemoryColor6(dims) {
+    dims = userInput;
+    color = 5;
+    for (let i = 0; i < dims * dims; i++) {
+        document.getElementById("cell" + i).addEventListener("mouseover", () => {
+            document.getElementById("cell" + i).style.backgroundColor = colorMemory6
+        })
+    }
+};
+
+function setMemoryColor7(dims) {
+    dims = userInput;
+    color = 5;
+    for (let i = 0; i < dims * dims; i++) {
+        document.getElementById("cell" + i).addEventListener("mouseover", () => {
+            document.getElementById("cell" + i).style.backgroundColor = colorMemory7
+        })
+    }
+};
+
+function setMemoryColor8(dims) {
+    dims = userInput;
+    color = 5;
+    for (let i = 0; i < dims * dims; i++) {
+        document.getElementById("cell" + i).addEventListener("mouseover", () => {
+            document.getElementById("cell" + i).style.backgroundColor = colorMemory8
+        })
+    }
+};
+
+function setMemoryColor9(dims) {
+    dims = userInput;
+    color = 5;
+    for (let i = 0; i < dims * dims; i++) {
+        document.getElementById("cell" + i).addEventListener("mouseover", () => {
+            document.getElementById("cell" + i).style.backgroundColor = colorMemory9
+        })
+    }
+};
+
+function setMemoryColor10(dims) {
+    dims = userInput;
+    color = 5;
+    for (let i = 0; i < dims * dims; i++) {
+        document.getElementById("cell" + i).addEventListener("mouseover", () => {
+            document.getElementById("cell" + i).style.backgroundColor = colorMemory10
+        })
+    }
+};
 //nationalities has 190 elements genders has 9
 function subheadingGenerator(){
     let nationalitiesElement;
@@ -363,7 +476,7 @@ function subheadingGenerator(){
 
     gendersElement = Math.floor(Math.random() * genders.length);
 
-return `"Sketch me like one of your ${nationalities[nationalitiesElement]} ${genders[gendersElement]}."`
+subHeading.innerText = `"Sketch me like one of your ${nationalities[nationalitiesElement]} ${genders[gendersElement]}."`
 
 };
 
