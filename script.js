@@ -2,7 +2,6 @@ let color = 0;
 let customColor;
 let colorMemCount = 0
 
-
 let colorMemory1;
 let colorMemory2;
 let colorMemory3;
@@ -13,11 +12,6 @@ let colorMemory7;
 let colorMemory8;
 let colorMemory9;
 let colorMemory10;
-
-
-
-
-
 
 const resetButton = document.getElementById("resetBtn")
 resetButton.addEventListener("click", resetGrid);
@@ -40,14 +34,10 @@ colorPicker.addEventListener("change", () => {
 const subHeading = document.getElementById("subHeading")
 
 
-
-
-
-
 let grid = document.querySelector(".grid")
 
+//sets default grid size and generates the first grid without user input
 userInput = 12;
-
 makeGriddyBoi()
 setColorDefault()
 setInterval(subheadingGenerator, 5000);
@@ -59,12 +49,7 @@ function onUserInput() {
     destroyGriddyBoi()
     makeGriddyBoi()
     getColor()
-
-
-
-
-
-}
+};
 
 // Makes a square grid from 1 input and adds unique id to each cell.
 function makeGriddyBoi(dims) {
@@ -80,14 +65,6 @@ function makeGriddyBoi(dims) {
     grid.setAttribute('style', `grid-template-columns: repeat(${dims}, 1fr); grid-template-rows: repeat(${dims}, 1fr);`);
 };
 
-
-
-//function to test buttons
-function test() {
-    console.log("test")
-
-
-}
 
 //iterates through each cell and changes background to white.
 function resetGrid(dims) {
@@ -161,7 +138,6 @@ function setColorDefault(dims) {
     }
 };
 
-
 function setColorReddish(dims) {
     dims = userInput;
     color = 1;
@@ -202,10 +178,7 @@ function setCustomColor(dims) {
         })
     }
 }
-//////////////////
-
-
-
+/////////////END RANDOM COLOR FUNCTIONS///////////////////
 
 function destroyGriddyBoi() {
     const elements = document.getElementsByClassName("cell");
@@ -236,6 +209,16 @@ function getColor() {
             break;
         case 9: setMemoryColor5()
             break;
+        case 10: setMemoryColor6()
+            break;
+        case 11: setMemoryColor7()
+            break;
+        case 12: setMemoryColor8()
+            break;
+        case 13: setMemoryColor9()
+            break;
+        case 14: setMemoryColor10()
+            break;
     }
 };
 
@@ -261,7 +244,6 @@ function createColorMemory() {
             colorMemory2Btn.style.background = colorMemory2;
             break;
         case 3:
-
             const colorMemory3Btn = document.createElement("button");
             colorMemory3Btn.addEventListener("click", setMemoryColor3)
             colorMemory3Btn.textContent = "";
@@ -270,8 +252,7 @@ function createColorMemory() {
             colorMemory3 = customColor
             colorMemory3Btn.style.background = colorMemory3;
             break;
-            case 4:
-
+        case 4:
             const colorMemory4Btn = document.createElement("button");
             colorMemory4Btn.addEventListener("click", setMemoryColor4)
             colorMemory4Btn.textContent = "";
@@ -280,8 +261,7 @@ function createColorMemory() {
             colorMemory4 = customColor
             colorMemory4Btn.style.background = colorMemory4;
             break;
-            case 5:
-
+        case 5:
             const colorMemory5Btn = document.createElement("button");
             colorMemory5Btn.addEventListener("click", setMemoryColor5)
             colorMemory5Btn.textContent = "";
@@ -289,9 +269,9 @@ function createColorMemory() {
             colorMemDiv.appendChild(colorMemory5Btn)
             colorMemory5 = customColor
             colorMemory5Btn.style.background = colorMemory5;
-            
+
             break;
-            case 6:
+        case 6:
 
             const colorMemory6Btn = document.createElement("button");
             colorMemory6Btn.addEventListener("click", setMemoryColor6)
@@ -300,10 +280,8 @@ function createColorMemory() {
             colorMemDiv.appendChild(colorMemory6Btn)
             colorMemory6 = customColor
             colorMemory6Btn.style.background = colorMemory6;
-            
             break;
-            case 7:
-
+        case 7:
             const colorMemory7Btn = document.createElement("button");
             colorMemory7Btn.addEventListener("click", setMemoryColor7)
             colorMemory7Btn.textContent = "";
@@ -311,9 +289,8 @@ function createColorMemory() {
             colorMemDiv.appendChild(colorMemory7Btn)
             colorMemory7 = customColor
             colorMemory7Btn.style.background = colorMemory7;
-            
             break;
-            case 8:
+        case 8:
 
             const colorMemory8Btn = document.createElement("button");
             colorMemory8Btn.addEventListener("click", setMemoryColor8)
@@ -322,10 +299,8 @@ function createColorMemory() {
             colorMemDiv.appendChild(colorMemory8Btn)
             colorMemory8 = customColor
             colorMemory8Btn.style.background = colorMemory8;
-            
             break;
-            case 9:
-
+        case 9:
             const colorMemory9Btn = document.createElement("button");
             colorMemory9Btn.addEventListener("click", setMemoryColor9)
             colorMemory9Btn.textContent = "";
@@ -333,10 +308,8 @@ function createColorMemory() {
             colorMemDiv.appendChild(colorMemory9Btn)
             colorMemory9 = customColor
             colorMemory9Btn.style.background = colorMemory9;
-            
             break;
-            case 10:
-
+        case 10:
             const colorMemory10Btn = document.createElement("button");
             colorMemory10Btn.addEventListener("click", setMemoryColor10)
             colorMemory10Btn.textContent = "";
@@ -345,22 +318,21 @@ function createColorMemory() {
             colorMemory10 = customColor
             colorMemory10Btn.style.background = colorMemory10;
             const resetMemoryBtn = document.createElement("button");
-            resetMemoryBtn.setAttribute("id","color-reset-button")
-            resetMemoryBtn.addEventListener("click",resetColorMemory)
+            resetMemoryBtn.setAttribute("id", "color-reset-button")
+            resetMemoryBtn.addEventListener("click", resetColorMemory)
             resetMemoryBtn.textContent = "Reset Color Memory";
             colorMemDiv.appendChild(resetMemoryBtn)
-            
             break;
 
     }
 };
 
-function resetColorMemory(){
+function resetColorMemory() {
     colorMemCount = 0
     const element = document.getElementById("colorMemory");
     element.remove();
     colorMemDiv = document.createElement("div");
-    colorMemDiv.setAttribute("id","colorMemory")
+    colorMemDiv.setAttribute("id", "colorMemory")
     let target = document.getElementById("colorMemoryWrapper");
     target.appendChild(colorMemDiv)
 }
@@ -377,7 +349,7 @@ function setMemoryColor1(dims) {
 
 function setMemoryColor2(dims) {
     dims = userInput;
-    color = 5;
+    color = 6;
     for (let i = 0; i < dims * dims; i++) {
         document.getElementById("cell" + i).addEventListener("mouseover", () => {
             document.getElementById("cell" + i).style.backgroundColor = colorMemory2
@@ -387,7 +359,7 @@ function setMemoryColor2(dims) {
 
 function setMemoryColor3(dims) {
     dims = userInput;
-    color = 5;
+    color = 7;
     for (let i = 0; i < dims * dims; i++) {
         document.getElementById("cell" + i).addEventListener("mouseover", () => {
             document.getElementById("cell" + i).style.backgroundColor = colorMemory3
@@ -397,7 +369,7 @@ function setMemoryColor3(dims) {
 
 function setMemoryColor4(dims) {
     dims = userInput;
-    color = 5;
+    color = 8;
     for (let i = 0; i < dims * dims; i++) {
         document.getElementById("cell" + i).addEventListener("mouseover", () => {
             document.getElementById("cell" + i).style.backgroundColor = colorMemory4
@@ -407,7 +379,7 @@ function setMemoryColor4(dims) {
 
 function setMemoryColor5(dims) {
     dims = userInput;
-    color = 5;
+    color = 9;
     for (let i = 0; i < dims * dims; i++) {
         document.getElementById("cell" + i).addEventListener("mouseover", () => {
             document.getElementById("cell" + i).style.backgroundColor = colorMemory5
@@ -417,7 +389,7 @@ function setMemoryColor5(dims) {
 
 function setMemoryColor6(dims) {
     dims = userInput;
-    color = 5;
+    color = 10;
     for (let i = 0; i < dims * dims; i++) {
         document.getElementById("cell" + i).addEventListener("mouseover", () => {
             document.getElementById("cell" + i).style.backgroundColor = colorMemory6
@@ -427,7 +399,7 @@ function setMemoryColor6(dims) {
 
 function setMemoryColor7(dims) {
     dims = userInput;
-    color = 5;
+    color = 11;
     for (let i = 0; i < dims * dims; i++) {
         document.getElementById("cell" + i).addEventListener("mouseover", () => {
             document.getElementById("cell" + i).style.backgroundColor = colorMemory7
@@ -437,7 +409,7 @@ function setMemoryColor7(dims) {
 
 function setMemoryColor8(dims) {
     dims = userInput;
-    color = 5;
+    color = 12;
     for (let i = 0; i < dims * dims; i++) {
         document.getElementById("cell" + i).addEventListener("mouseover", () => {
             document.getElementById("cell" + i).style.backgroundColor = colorMemory8
@@ -447,7 +419,7 @@ function setMemoryColor8(dims) {
 
 function setMemoryColor9(dims) {
     dims = userInput;
-    color = 5;
+    color = 13;
     for (let i = 0; i < dims * dims; i++) {
         document.getElementById("cell" + i).addEventListener("mouseover", () => {
             document.getElementById("cell" + i).style.backgroundColor = colorMemory9
@@ -457,7 +429,7 @@ function setMemoryColor9(dims) {
 
 function setMemoryColor10(dims) {
     dims = userInput;
-    color = 5;
+    color = 14;
     for (let i = 0; i < dims * dims; i++) {
         document.getElementById("cell" + i).addEventListener("mouseover", () => {
             document.getElementById("cell" + i).style.backgroundColor = colorMemory10
@@ -465,10 +437,10 @@ function setMemoryColor10(dims) {
     }
 };
 //nationalities has 190 elements genders has 9
-function subheadingGenerator(){
+function subheadingGenerator() {
     let nationalitiesElement;
     let gendersElement;
-    const nationalities = ["Albanian","Algerian","American","Andorran","Angolan","Antiguans","Argentinean","Armenian","Australian","Austrian","Azerbaijani","Bahamian","Bahraini","Bangladeshi","Barbadian","Barbudans","Batswana","Belarusian","Belgian","Belizean","Beninese","Bhutanese","Bolivian","Bosnian","Brazilian","British","Bruneian","Bulgarian","Burkinabe","Burmese","Burundian","Cambodian","Cameroonian","Canadian","Cape Verdean","Central African","Chadian","Chilean","Chinese","Colombian","Comoran","Congolese","Costa Rican","Croatian","Cuban","Cypriot","Czech","Danish","Djibouti","Dominican","Dutch","East Timorese","Ecuadorean","Egyptian","Emirian","Equatorial Guinean","Eritrean","Estonian","Ethiopian","Fijian","Filipino","Finnish","French","Gabonese","Gambian","Georgian","German","Ghanaian","Greek","Grenadian","Guatemalan","Guinea-Bissauan","Guinean","Guyanese","Haitian","Herzegovinian","Honduran","Hungarian","I-Kiribati","Icelander","Indian","Indonesian","Iranian","Iraqi","Irish","Israeli","Italian","Ivorian","Jamaican","Japanese","Jordanian","Kazakhstani","Kenyan","Kittian and Nevisian","Kuwaiti","Kyrgyz","Laotian","Latvian","Lebanese","Liberian","Libyan","Liechtensteiner","Lithuanian","Luxembourger","Macedonian","Malagasy","Malawian","Malaysian","Maldivan","Malian","Maltese","Marshallese","Mauritanian","Mauritian","Mexican","Micronesian","Moldovan","Monacan","Mongolian","Moroccan","Mosotho","Motswana","Mozambican","Namibian","Nauruan","Nepalese","New Zealander","Nicaraguan","Nigerian","Nigerien","North Korean","Northern Irish","Norwegian","Omani","Pakistani","Palauan","Panamanian","Papua New Guinean","Paraguayan","Peruvian","Polish","Portuguese","Qatari","Romanian","Russian","Rwandan","Saint Lucian","Salvadoran","Samoan","San Marinese","Sao Tomean","Saudi","Scottish","Senegalese","Serbian","Seychellois","Sierra Leonean","Singaporean","Slovakian","Slovenian","Solomon Islander","Somali","South African","South Korean","Spanish","Sri Lankan","Sudanese","Surinamer","Swazi","Swedish","Swiss","Syrian","Taiwanese","Tajik","Tanzanian","Thai","Togolese","Tongan","Trinidadian or Tobagonian","Tunisian","Turkish","Tuvaluan","Ugandan","Ukrainian","Uruguayan","Uzbekistani","Venezuelan","Vietnamese","Welsh","Yemenite"]
+    const nationalities = ["Albanian", "Algerian", "American", "Andorran", "Angolan", "Antiguans", "Argentinean", "Armenian", "Australian", "Austrian", "Azerbaijani", "Bahamian", "Bahraini", "Bangladeshi", "Barbadian", "Barbudans", "Batswana", "Belarusian", "Belgian", "Belizean", "Beninese", "Bhutanese", "Bolivian", "Bosnian", "Brazilian", "British", "Bruneian", "Bulgarian", "Burkinabe", "Burmese", "Burundian", "Cambodian", "Cameroonian", "Canadian", "Cape Verdean", "Central African", "Chadian", "Chilean", "Chinese", "Colombian", "Comoran", "Congolese", "Costa Rican", "Croatian", "Cuban", "Cypriot", "Czech", "Danish", "Djibouti", "Dominican", "Dutch", "East Timorese", "Ecuadorean", "Egyptian", "Emirian", "Equatorial Guinean", "Eritrean", "Estonian", "Ethiopian", "Fijian", "Filipino", "Finnish", "French", "Gabonese", "Gambian", "Georgian", "German", "Ghanaian", "Greek", "Grenadian", "Guatemalan", "Guinea-Bissauan", "Guinean", "Guyanese", "Haitian", "Herzegovinian", "Honduran", "Hungarian", "I-Kiribati", "Icelander", "Indian", "Indonesian", "Iranian", "Iraqi", "Irish", "Israeli", "Italian", "Ivorian", "Jamaican", "Japanese", "Jordanian", "Kazakhstani", "Kenyan", "Kittian and Nevisian", "Kuwaiti", "Kyrgyz", "Laotian", "Latvian", "Lebanese", "Liberian", "Libyan", "Liechtensteiner", "Lithuanian", "Luxembourger", "Macedonian", "Malagasy", "Malawian", "Malaysian", "Maldivan", "Malian", "Maltese", "Marshallese", "Mauritanian", "Mauritian", "Mexican", "Micronesian", "Moldovan", "Monacan", "Mongolian", "Moroccan", "Mosotho", "Motswana", "Mozambican", "Namibian", "Nauruan", "Nepalese", "New Zealander", "Nicaraguan", "Nigerian", "Nigerien", "North Korean", "Northern Irish", "Norwegian", "Omani", "Pakistani", "Palauan", "Panamanian", "Papua New Guinean", "Paraguayan", "Peruvian", "Polish", "Portuguese", "Qatari", "Romanian", "Russian", "Rwandan", "Saint Lucian", "Salvadoran", "Samoan", "San Marinese", "Sao Tomean", "Saudi", "Scottish", "Senegalese", "Serbian", "Seychellois", "Sierra Leonean", "Singaporean", "Slovakian", "Slovenian", "Solomon Islander", "Somali", "South African", "South Korean", "Spanish", "Sri Lankan", "Sudanese", "Surinamer", "Swazi", "Swedish", "Swiss", "Syrian", "Taiwanese", "Tajik", "Tanzanian", "Thai", "Togolese", "Tongan", "Trinidadian or Tobagonian", "Tunisian", "Turkish", "Tuvaluan", "Ugandan", "Ukrainian", "Uruguayan", "Uzbekistani", "Venezuelan", "Vietnamese", "Welsh", "Yemenite"]
 
     const genders = ["boys", "girls", "non-binaries", "genderqueers", "genderfluids", "transgenders", "agenders", "bigenders", "intersexes"];
 
@@ -476,7 +448,7 @@ function subheadingGenerator(){
 
     gendersElement = Math.floor(Math.random() * genders.length);
 
-subHeading.innerText = `"Sketch me like one of your ${nationalities[nationalitiesElement]} ${genders[gendersElement]}."`
+    subHeading.innerText = `"Sketch me like one of your ${nationalities[nationalitiesElement]} ${genders[gendersElement]}."`
 
 };
 
