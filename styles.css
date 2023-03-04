@@ -119,8 +119,8 @@ body{
 
     @media all and (max-width:500px){
 .grid {
-    height: 400px;
-    width: 400px; 
+    height: 350px;
+    width: 350px; 
     margin-bottom: 20px;
 }
 
